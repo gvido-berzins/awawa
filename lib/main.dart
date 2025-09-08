@@ -1000,11 +1000,12 @@ class _MissionDetailState extends State<MissionDetail> {
             ],
           ),
           const SizedBox(height: 20),
-          FilledButton.icon(
-            onPressed: () => AppScope.of(context).activateMission(m),
-            icon: const Icon(Icons.play_circle),
-            label: const Text('Activate'),
-          ),
+          if (!state.activeMissions.contains(m))
+            FilledButton.icon(
+              onPressed: () => AppScope.of(context).activateMission(m),
+              icon: const Icon(Icons.play_circle),
+              label: const Text('Activate'),
+            ),
         ],
       ),
     );
